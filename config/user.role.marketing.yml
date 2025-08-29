@@ -30,6 +30,7 @@ dependencies:
     - taxonomy.vocabulary.pay_grades
     - taxonomy.vocabulary.site_sections
   module:
+    - environment_indicator
     - feeds
     - filter
     - media
@@ -39,7 +40,6 @@ dependencies:
     - redirect
     - scheduled_updates
     - search
-    - shortcut
     - system
     - taxonomy
     - update
@@ -52,13 +52,13 @@ is_admin: null
 permissions:
   - 'access content'
   - 'access content overview'
+  - 'access environment indicator'
   - 'access user profiles'
   - 'access webform overview'
   - 'administer nodes'
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer scheduled update types'
-  - 'administer shortcuts'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer webform'
@@ -87,7 +87,6 @@ permissions:
   - 'create url aliases'
   - 'create vanpool content'
   - 'create webform'
-  - 'customize shortcut links'
   - 'delete any blog_page content'
   - 'delete any bus_route_scheduler scheduled updates'
   - 'delete any bus_stop_page content'
@@ -208,7 +207,6 @@ permissions:
   - 'revert tabbed_basic_page revisions'
   - 'revert vanpool revisions'
   - 'search content'
-  - 'switch shortcut sets'
   - 'unlock own stops_data feeds'
   - 'update any media'
   - 'update media'

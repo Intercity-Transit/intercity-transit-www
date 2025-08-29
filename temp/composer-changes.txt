@@ -1,0 +1,25 @@
+diff --git a/composer.json b/composer.json
+index 248e413810..a1a71e834c 100755
+--- a/composer.json
++++ b/composer.json
+@@ -397,2 +396,0 @@
+-        "drupal/admin_toolbar": "^3.1",
+-        "drupal/adminimal_admin_toolbar": "1.x-dev",
+@@ -400 +397,0 @@
+-        "drupal/anchor_link": "^2.5",
+@@ -439,2 +436 @@
+-        "drupal/linkit": "^6.0@beta",
+-        "drupal/linkit_media_library": "^1.0",
++        "drupal/linkit": "^7.0",
+@@ -474 +469,0 @@
+-        "drupal/ultimate_cron": "^2.0-alpha4",
+@@ -528 +523 @@
+-        "drupal/config_ignore": "^3.3",
++        "drupal/config_ignore": "^3",
+@@ -535 +530,5 @@
+-        "drupal/slick_extras": "^2.0"
++        "drupal/slick_extras": "^2.0",
++        "drupal/gin_toolbar": "^1",
++        "drupal/gin": "^4.0",
++        "drupal/environment_indicator": "^4.0",
++        "drupal/styleguide": "^2.2"

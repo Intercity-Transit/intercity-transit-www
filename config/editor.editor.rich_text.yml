@@ -1,76 +1,56 @@
-uuid: 68139b07-8cd1-4015-acf2-5daf1652d7cd
+uuid: db9fa115-e163-4f2b-9a7f-0fd0e4c3e310
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.rich_text
   module:
-    - ckeditor
-_core:
-  default_config_hash: 0bVELtfx9sXhjZ6s6W-dJo8SW-IR9jiEIEylzm-2Cro
+    - ckeditor5
 format: rich_text
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Underline
-            - Bold
-            - Italic
-            - Strike
-            - Superscript
-            - Subscript
-            - '-'
-            - RemoveFormat
-        -
-          name: Alignment
-          items:
-            - JustifyLeft
-            - JustifyCenter
-            - JustifyRight
-            - JustifyBlock
-            - Outdent
-            - Indent
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - Table
-            - HorizontalRule
-            - media_browser
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
-          name: Tools
-          items:
-            - '-'
-            - Undo
-            - Redo
-            - '-'
-            - ShowBlocks
-            - Source
-            - Maximize
-  plugins: {  }
+    items:
+      - heading
+      - bold
+      - italic
+      - strikethrough
+      - specialCharacters
+      - '|'
+      - undo
+      - redo
+      - '|'
+      - bulletedList
+      - numberedList
+      - alignment
+      - indent
+      - outdent
+      - '|'
+      - drupalInsertImage
+      - link
+  plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_imageResize:
+      allow_resize: true
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    linkit_extension:
+      linkit_enabled: true
+      linkit_profile: default
 image_upload:
-  status: true
-  scheme: public
-  directory: inline-images
-  max_size: null
-  max_dimensions:
-    width: null
-    height: null
+  status: false

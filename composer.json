@@ -394,10 +394,7 @@
     "require": {
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
-        "drupal/admin_toolbar": "^3.1",
-        "drupal/adminimal_admin_toolbar": "1.x-dev",
         "drupal/adminimal_theme": "^1.7",
-        "drupal/anchor_link": "^2.5",
         "drupal/auto_entitylabel": "^3.0-dev",
         "drupal/better_search": "^2.0",
         "drupal/blazy": "^3.0",
@@ -436,8 +433,7 @@
         "drupal/inline_responsive_images": "^3",
         "drupal/jquery_ui": "^1.4",
         "drupal/jquery_ui_datepicker": "^1.2",
-        "drupal/linkit": "^6.0@beta",
-        "drupal/linkit_media_library": "^1.0",
+        "drupal/linkit": "^7.0",
         "drupal/mailsystem": "^4.1",
         "drupal/media_entity_generic": "^1.0",
         "drupal/media_entity_instagram": "^3",
@@ -471,7 +467,6 @@
         "drupal/twig_capture": "^1.0",
         "drupal/twig_field_value": "^2",
         "drupal/twig_tweak": "^3.1",
-        "drupal/ultimate_cron": "^2.0-alpha4",
         "drupal/upgrade_status": "^4.3",
         "drupal/video_embed_field": "^2.2",
         "drupal/views_accordion": "^2",
@@ -525,14 +520,25 @@
         "fontawesome/fontawesome": "*",
         "davedevelopment/stiphle": "^0.9.4",
         "google/protobuf": "3.22.0 as 3.10.0",
-        "drupal/config_ignore": "^3.3",
+        "drupal/config_ignore": "^3",
         "drupal/cacheexclude": "^2.0",
         "drupal/redis": "^1.7",
         "drupal/config_filter": "^2.6",
         "drupal/quickedit": "*",
         "drupal/rdf": "*",
         "drupal/jquery_ui_autocomplete": "^2.1",
-        "drupal/slick_extras": "^2.0"
+        "drupal/slick_extras": "^2.0",
+        "drupal/gin_toolbar": "^1",
+        "drupal/gin": "^4.0",
+        "drupal/environment_indicator": "^4.0",
+        "drupal/styleguide": "^2.2",
+        "npm-asset/chosen-js": "^1.8",
+        "npm-asset/jquery-colorbox": "^1.6",
+        "npm-asset/jquery-hoverintent": "^1.10",
+        "bower-asset/jquery-cycle": "^3.0",
+        "npm-asset/json2": "^0.1",
+        "npm-asset/jquery.pause": "^3.0",
+        "npm-asset/jquery.cycle2": "^2.1"
     },
     "require-dev": {
         "drupal/core-dev": "^10"
@@ -543,7 +549,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
-        "installer-types": ["npm-asset"],
+        "installer-types": ["npm-asset","bower-asset","drupal-library"],
         "drupal-scaffold": {
             "locations": {
                 "web-root": "./web"
@@ -557,10 +563,22 @@
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
+
+            "web/libraries/chosen":           ["npm-asset/chosen-js"],
+            "web/libraries/colorbox":         ["npm-asset/jquery-colorbox"],
+            "web/libraries/jquery.cycle2":    ["npm-asset/jquery.cycle2"],
+            "web/libraries/jquery.cycle":     ["bower-asset/jquery-cycle"],
+            "web/libraries/jquery.hover-intent": ["npm-asset/jquery-hoverintent"],
+            "web/libraries/json2":            ["npm-asset/json2"],
+            "web/libraries/jquery.pause":     ["npm-asset/jquery.pause"],
+            "web/libraries/fontawesome":      ["npm-asset/font-awesome"],
+
             "web/libraries/{$name}": [
-                "type:drupal-library",
-                "type:npm-asset"
+              "type:drupal-library",
+              "type:npm-asset",
+              "type:bower-asset"
             ],
+
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
@@ -585,8 +603,19 @@
         "classmap": ["upstream-configuration/scripts/ComposerScripts.php"]
     },
     "scripts": {
-        "pre-update-cmd": ["DrupalComposerManaged\\ComposerScripts::preUpdate"],
-        "post-update-cmd": ["DrupalComposerManaged\\ComposerScripts::postUpdate"]
+      "pre-update-cmd": [
+        "DrupalComposerManaged\\ComposerScripts::preUpdate"
+      ],
+      "post-update-cmd": [
+        "DrupalComposerManaged\\ComposerScripts::postUpdate",
+        "@fix-legacy-libraries"
+      ],
+      "post-install-cmd": [
+        "@fix-legacy-libraries"
+      ],
+      "fix-legacy-libraries": [
+        "@php -r \"\\$src='web/libraries/json2/lib/JSON2/static/json2.js'; \\$dest='web/libraries/json2/json2.js'; if (file_exists(\\$src)) { if (!is_dir(dirname(\\$dest))) { mkdir(dirname(\\$dest), 0777, true); } if (!file_exists(\\$dest)) { copy(\\$src, \\$dest); } }\""
+      ]
     },
     "config": {
         "preferred-install": "dist",

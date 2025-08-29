@@ -2,7 +2,6 @@ _core:
   default_config_hash: qSffC70ODbv0BehNMS_7K1sO34OogvBsnphKkBeV5W8
 admin_css: true
 one_pixel: true
-max_region_count: 0
 blazy:
   loadInvisible: false
   offset: 100
