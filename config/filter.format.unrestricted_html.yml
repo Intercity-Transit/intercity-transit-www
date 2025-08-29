@@ -2,11 +2,16 @@ uuid: 39c84969-3ca5-4512-b767-3f05be4fc7c2
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.colorbox
+    - core.entity_view_mode.media.responsive_original_size_no_modal
   module:
     - blazy
     - editor
     - entity_embed
     - inline_responsive_images
+    - linkit
+    - media
     - slick
 name: 'Unrestricted HTML'
 format: unrestricted_html
@@ -16,7 +21,7 @@ filters:
     id: blazy_filter
     provider: blazy
     status: false
-    weight: 3
+    weight: -36
     settings:
       media_switch: ''
       hybrid_style: ''
@@ -31,105 +36,136 @@ filters:
     id: editor_file_reference
     provider: editor
     status: false
-    weight: -47
+    weight: -45
     settings: {  }
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
-    weight: -50
+    weight: -41
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
-    status: false
-    weight: -46
+    status: true
+    weight: -43
     settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
-    weight: -45
+    weight: -40
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
     status: false
-    weight: -44
+    weight: -39
     settings: {  }
   filter_html:
     id: filter_html
     provider: filter
-    status: true
-    weight: -49
+    status: false
+    weight: -47
     settings:
-      allowed_html: '<a href hreflang class=""> <em> <strong> <cite> <blockquote cite> <code> <ul data-blazy class=""> <ol start type> <li role class=""> <dl> <dt> <dd> <h2 id style> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid data-align data-caption class=""> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button alt="" title=""> <div class=""> <iframe width height frameborder allowfullscreen src> <button type data-toggle data-target id aria-haspopup aria-expanded class=""> <p class="" style=""> <span class=""> <i class=""><script src=""><em><br><center><p>'
+      allowed_html: ''
       filter_html_help: true
       filter_html_nofollow: false
-      allowed_html_automatic_tag: 0
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -48
+    weight: -46
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -40
+    weight: -37
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: false
-    weight: -39
+    status: true
+    weight: -49
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: -48
     settings: {  }
   filter_imagestyle:
     id: filter_imagestyle
     provider: inline_responsive_images
-    status: false
-    weight: -42
+    status: true
+    weight: -44
     settings:
-      image_style_350x350: '0'
-      image_style_400x300: '0'
-      image_style_banner_narrow: '0'
-      image_style_banner_narrow_m_: '0'
-      image_style_geofield_map_default_icon_style: '0'
-      image_style_large: '0'
-      image_style_medium: '0'
-      image_style_medium_220_x_220_cropped: '0'
-      image_style_person_thumbnail: '0'
-      image_style_thumbnail: '0'
-      image_style_tile_300_200_: '0'
-      image_style_tile_300_300_: '0'
+      image_styles:
+        120_x_160: 120_x_160
+        350x350: 350x350
+        400x300: 400x300
+        450_x_600: 450_x_600
+        thumbnail: thumbnail
+        banner_narrow: '0'
+        banner_narrow_m_: '0'
+        geofield_map_default_icon_style: '0'
+        large: '0'
+        linkit_result_thumbnail: '0'
+        medium: '0'
+        medium_220_x_220_cropped: '0'
+        person_thumbnail: '0'
+        tile_300_200_: '0'
+        tile_300_300_: '0'
   filter_responsive_image_style:
     id: filter_responsive_image_style
     provider: inline_responsive_images
-    status: false
-    weight: -41
+    status: true
+    weight: -50
     settings:
-      responsive_style_default_responsive: '0'
-      responsive_style_responsive_grid_image: '0'
-      responsive_style_responsive_narrow_banner: '0'
+      image_styles:
+        default_responsive: '0'
+        responsive_grid_image: '0'
+        responsive_narrow_banner: '0'
   filter_url:
     id: filter_url
     provider: filter
     status: false
-    weight: -43
+    weight: -38
     settings:
       filter_url_length: 72
+  linkit:
+    id: linkit
+    provider: linkit
+    status: false
+    weight: 0
+    settings:
+      title: false
+      media_substitution: metadata
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: -42
+    settings:
+      default_view_mode: default
+      allowed_view_modes:
+        default: default
+        colorbox: colorbox
+        responsive_original_size_no_modal: responsive_original_size_no_modal
+      allowed_media_types: {  }
   slick_filter:
     id: slick_filter
     provider: slick
     status: false
-    weight: 4
+    weight: -35
     settings:
       caption:
         alt: '0'
         title: '0'
       optionset: default
       layout: ''
+      admin_uri: '/admin/config/content/formats/manage/unrestricted_html?destination=/admin/config/content/formats'
       background: false
       box_caption: ''
       box_caption_custom: ''

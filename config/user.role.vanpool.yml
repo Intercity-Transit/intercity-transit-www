@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - filter.format.iframe
-    - filter.format.rich_text
     - node.type.vanpool
   module:
     - filter
@@ -24,6 +23,5 @@ permissions:
   - 'edit own vanpool content'
   - 'revert vanpool revisions'
   - 'use text format iframe'
-  - 'use text format rich_text'
   - 'view media'
   - 'view vanpool revisions'

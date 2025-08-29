@@ -22,6 +22,7 @@ filters:
       media_switch: ''
       hybrid_style: ''
       box_style: ''
+      box_media_style: ''
       box_caption: ''
       filter_tags:
         img: img
@@ -66,7 +67,6 @@ filters:
       allowed_html: '<a name href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <script src> <img src alt data-entity-type data-entity-uuid data-align data-caption data-image-style data-responsive-image-style> <i class="fa fa-bike"><form name method action><input type name value class><p><div class><table><th><tr><td class colspan>'
       filter_html_help: true
       filter_html_nofollow: false
-      allowed_html_automatic_tag: 0
   filter_html_escape:
     id: filter_html_escape
     provider: filter
@@ -91,25 +91,31 @@ filters:
     status: true
     weight: -46
     settings:
-      image_style_thumbnail: '0'
-      image_style_350x350: '0'
-      image_style_400x300: '0'
-      image_style_banner_narrow: '0'
-      image_style_banner_narrow_m_: '0'
-      image_style_large: '0'
-      image_style_medium: '0'
-      image_style_medium_220_x_220_cropped: '0'
-      image_style_tile_300_200_: '0'
-      image_style_tile_300_300_: '0'
+      image_styles:
+        120_x_160: '0'
+        350x350: '0'
+        400x300: '0'
+        450_x_600: '0'
+        banner_narrow: '0'
+        banner_narrow_m_: '0'
+        geofield_map_default_icon_style: '0'
+        large: '0'
+        medium: '0'
+        medium_220_x_220_cropped: '0'
+        person_thumbnail: '0'
+        thumbnail: '0'
+        tile_300_200_: '0'
+        tile_300_300_: '0'
   filter_responsive_image_style:
     id: filter_responsive_image_style
     provider: inline_responsive_images
     status: true
     weight: -45
     settings:
-      responsive_style_default_responsive: '0'
-      responsive_style_responsive_grid_image: '0'
-      responsive_style_responsive_narrow_banner: '0'
+      image_styles:
+        default_responsive: '0'
+        responsive_grid_image: '0'
+        responsive_narrow_banner: '0'
   filter_url:
     id: filter_url
     provider: filter
@@ -132,18 +138,27 @@ filters:
     status: false
     weight: 4
     settings:
+      caption:
+        alt: '0'
+        title: '0'
       optionset: default
       layout: ''
+      admin_uri: '/admin/config/content/formats/manage/code?destination=/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax'
       background: false
+      box_caption: ''
+      box_caption_custom: ''
       box_media_style: ''
       loading: ''
-      preload: false
       responsive_image_style: ''
       box_style: ''
       image_style: ''
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
       skin: ''
       overridables:
         arrows: '0'
@@ -160,3 +175,5 @@ filters:
       thumbnail_effect: ''
       thumbnail_position: ''
       override: false
+      preserve_keys: false
+      visible_items: null

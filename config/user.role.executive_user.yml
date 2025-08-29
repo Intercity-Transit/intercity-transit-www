@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - filter.format.iframe
-    - filter.format.rich_text
     - media.type.document
     - media.type.ita_cac_members
     - node.type.blog_page
@@ -53,7 +52,6 @@ permissions:
   - 'use needs_review_published transition'
   - 'use published_published transition'
   - 'use text format iframe'
-  - 'use text format rich_text'
   - 'view blog_page revisions'
   - 'view calendar_event revisions'
   - 'view interagency_agreement revisions'

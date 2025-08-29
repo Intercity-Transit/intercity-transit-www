@@ -3,11 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.rich_text
     - node.type.blog_page
     - node.type.procurement_bid_or_proposal
   module:
-    - filter
     - node
 id: procurement_user
 label: 'Procurement User'
@@ -25,6 +23,5 @@ permissions:
   - 'edit own procurement_bid_or_proposal content'
   - 'revert blog_page revisions'
   - 'revert procurement_bid_or_proposal revisions'
-  - 'use text format rich_text'
   - 'view blog_page revisions'
   - 'view procurement_bid_or_proposal revisions'

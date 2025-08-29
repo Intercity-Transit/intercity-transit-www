@@ -6,7 +6,6 @@ dependencies:
     - feeds.feed_type.rider_updates
     - feeds.feed_type.stops_data
     - filter.format.iframe
-    - filter.format.rich_text
     - filter.format.text_and_bullets
     - media.type.ita_cac_members
     - node.type.blog_page
@@ -39,7 +38,6 @@ dependencies:
     - redirect
     - scheduled_updates
     - search
-    - shortcut
     - system
     - taxonomy
     - update
@@ -58,7 +56,6 @@ permissions:
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer scheduled update types'
-  - 'administer shortcuts'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer webform'
@@ -87,7 +84,6 @@ permissions:
   - 'create url aliases'
   - 'create vanpool content'
   - 'create webform'
-  - 'customize shortcut links'
   - 'delete any blog_page content'
   - 'delete any bus_route_scheduler scheduled updates'
   - 'delete any bus_stop_page content'
@@ -208,7 +204,6 @@ permissions:
   - 'revert tabbed_basic_page revisions'
   - 'revert vanpool revisions'
   - 'search content'
-  - 'switch shortcut sets'
   - 'unlock own stops_data feeds'
   - 'update any media'
   - 'update media'
@@ -222,7 +217,6 @@ permissions:
   - 'use published_draft transition'
   - 'use published_published transition'
   - 'use text format iframe'
-  - 'use text format rich_text'
   - 'use text format text_and_bullets'
   - 'view any unpublished content'
   - 'view any webform submission'

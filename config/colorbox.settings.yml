@@ -1,8 +1,9 @@
 _core:
   default_config_hash: pGLVIx7btzLB_RbaJGrS9lLls2p8GixZdvheuN7QcjU
+dompurify_hide_warning: false
 custom:
   style: default
-  activate: 1
+  activate: 0
   transition_type: elastic
   transition_speed: 350
   opacity: 0.85

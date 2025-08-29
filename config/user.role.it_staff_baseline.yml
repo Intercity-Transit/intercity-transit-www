@@ -9,7 +9,6 @@ dependencies:
     - media
     - node
     - system
-    - toolbar
     - workbench_moderation
 id: it_staff_baseline
 label: 'IT Staff Baseline'
@@ -19,7 +18,6 @@ permissions:
   - 'access content overview'
   - 'access files overview'
   - 'access media overview'
-  - 'access toolbar'
   - 'create media'
   - 'delete media'
   - 'edit own page content'

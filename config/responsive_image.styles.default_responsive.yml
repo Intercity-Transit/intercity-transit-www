@@ -1,13 +1,15 @@
 uuid: 2bd3d941-1da7-4409-82c1-5a6843beac3f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - image.style.400x300
 id: default_responsive
 label: 'default responsive'
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: '_original image_'
+    image_mapping: 400x300
     breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x
 breakpoint_group: responsive_image

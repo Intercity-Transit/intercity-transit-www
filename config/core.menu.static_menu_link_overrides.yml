@@ -2,8 +2,8 @@ _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
 definitions:
   standard__front_page:
+    weight: -44
     menu_name: main
     parent: ''
-    weight: -45
     expanded: false
     enabled: false

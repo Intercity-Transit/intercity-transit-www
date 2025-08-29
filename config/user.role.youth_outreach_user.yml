@@ -1,14 +1,9 @@
 uuid: 084ad1bd-9d0a-4530-b50f-c69b693dc9e4
 langcode: en
 status: true
-dependencies:
-  config:
-    - filter.format.rich_text
-  module:
-    - filter
+dependencies: {  }
 id: youth_outreach_user
 label: 'Youth Outreach User'
 weight: -1
 is_admin: null
-permissions:
-  - 'use text format rich_text'
+permissions: {  }

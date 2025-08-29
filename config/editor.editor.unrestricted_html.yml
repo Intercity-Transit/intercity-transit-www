@@ -1,51 +1,45 @@
-uuid: 9b2f6a9f-be0f-4599-8b89-50eec94d6f41
+uuid: 73a7cd91-81be-400c-bc43-d1b4dfb9e74c
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.unrestricted_html
   module:
-    - ckeditor
+    - ckeditor5
 format: unrestricted_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Styles
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalImage
-            - media_browser
-        -
-          name: Tools
-          items:
-            - Source
-            - ShowBlocks
-            - Maximize
-            - Outdent
-            - Indent
-            - Undo
-            - Redo
+    items:
+      - bold
+      - italic
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - outdent
+      - indent
+      - '|'
+      - blockQuote
+      - drupalInsertImage
+      - media_browser
+      - '|'
+      - sourceEditing
+      - showBlocks
+      - undo
+      - redo
   plugins:
-    stylescombo:
-      styles: ''
+    ckeditor5_imageResize:
+      allow_resize: true
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    media_media:
+      allow_view_mode_override: false
 image_upload:
   status: false

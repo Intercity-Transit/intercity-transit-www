@@ -7,10 +7,8 @@ dependencies:
   module:
     - contextual
     - node
-    - quickedit
     - smart_date_recur
     - system
-    - toolbar
 id: calendar_editor
 label: "Walk'n'roll calendar editor"
 weight: 2
@@ -18,8 +16,6 @@ is_admin: null
 permissions:
   - 'access content overview'
   - 'access contextual links'
-  - 'access in-place editing'
-  - 'access toolbar'
   - 'cancel smart date recur instances'
   - 'create walk_n_roll_event content'
   - 'delete any walk_n_roll_event content'

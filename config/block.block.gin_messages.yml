@@ -1,15 +1,15 @@
-uuid: 5204c2ff-c190-453a-8a8f-02af1cb71dc7
+uuid: 05663306-f99a-4363-89fc-90d8420bec5f
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - adminimal_theme
+    - gin
 _core:
-  default_config_hash: YqKTtloWJ8FjLtfVNfrHaK6kVgxT67lC1cJ3j6i6WLo
-id: adminimal_theme_messages
-theme: adminimal_theme
+  default_config_hash: WvPhI8OwllG0gE69-F8qL3ai3nd5SbYD6JpmEuZcyok
+id: gin_messages
+theme: gin
 region: highlighted
 weight: 0
 provider: null

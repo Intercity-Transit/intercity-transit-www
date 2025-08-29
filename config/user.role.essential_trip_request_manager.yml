@@ -1,14 +1,9 @@
 uuid: 19a9fc60-dff1-48e3-b52e-b96d2b6c9013
 langcode: en
 status: true
-dependencies:
-  config:
-    - filter.format.rich_text
-  module:
-    - filter
+dependencies: {  }
 id: essential_trip_request_manager
 label: 'Essential Trip Request Manager'
 weight: 0
 is_admin: null
-permissions:
-  - 'use text format rich_text'
+permissions: {  }

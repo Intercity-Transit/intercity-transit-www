@@ -3,18 +3,35 @@ langcode: en
 status: true
 dependencies:
   module:
+    - blazy
     - inline_responsive_images
+    - slick
 name: iFrame
 format: iframe
 weight: -9
 filters:
+  blazy_filter:
+    id: blazy_filter
+    provider: blazy
+    status: false
+    weight: 3
+    settings:
+      media_switch: ''
+      hybrid_style: ''
+      box_style: ''
+      box_media_style: ''
+      box_caption: ''
+      filter_tags:
+        img: img
+        iframe: iframe
+      use_data_uri: '0'
   filter_html:
     id: filter_html
     provider: filter
     status: true
     weight: -10
     settings:
-      allowed_html: '<iframe frameborder height marginheight marginwidth scrolling src width> <p> <strong> <em> <a href> <ul> <li> <ol> <blockquote> <img src alt data-entity-type data-entity-uuid>'
+      allowed_html: '<br> <p> <iframe frameborder height marginheight marginwidth scrolling src width> <strong> <em> <blockquote> <a href> <ul> <ol> <li> <img src alt height width data-entity-type data-entity-uuid>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_imagestyle:
@@ -23,18 +40,73 @@ filters:
     status: false
     weight: 0
     settings:
-      image_style_banner_narrow: '0'
-      image_style_banner_narrow_m_: '0'
-      image_style_large: '0'
-      image_style_medium: '0'
-      image_style_medium_220_x_220_cropped: '0'
-      image_style_thumbnail: '0'
+      image_styles:
+        120_x_160: '0'
+        350x350: '0'
+        400x300: '0'
+        450_x_600: '0'
+        banner_narrow: '0'
+        banner_narrow_m_: '0'
+        geofield_map_default_icon_style: '0'
+        large: '0'
+        medium: '0'
+        medium_220_x_220_cropped: '0'
+        person_thumbnail: '0'
+        thumbnail: '0'
+        tile_300_200_: '0'
+        tile_300_300_: '0'
   filter_responsive_image_style:
     id: filter_responsive_image_style
     provider: inline_responsive_images
     status: false
     weight: 0
     settings:
-      responsive_style_default_responsive: '0'
-      responsive_style_responsive_grid_image: '0'
-      responsive_style_responsive_narrow_banner: '0'
+      image_styles:
+        default_responsive: '0'
+        responsive_grid_image: '0'
+        responsive_narrow_banner: '0'
+  slick_filter:
+    id: slick_filter
+    provider: slick
+    status: false
+    weight: 4
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: default
+      layout: ''
+      admin_uri: '/admin/config/content/formats/manage/iframe?destination=/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax'
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: ''
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      preserve_keys: false
+      visible_items: null
