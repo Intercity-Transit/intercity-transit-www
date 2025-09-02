@@ -1,0 +1,153 @@
+.body {
+    padding-top: 66px;
+}
+
+a,
+.nav-item>button {
+    color: #005eb8;
+}
+
+a:hover,
+.nav-item>button:hover {
+    color: #003087;
+}
+
+i.employee {
+    font-size: 1.4em;
+    color: #003087;
+}
+
+/*Navigation Bar*/
+nav.navbar.intercity {
+    background-color: #003087;
+}
+
+img.navbar-brand {
+    width: 7em;
+    padding-left: 1em;
+}
+
+nav.navbar a {
+    color: white;
+    padding-right: 1em;
+}
+
+nav.navbar a:hover {
+    color: #80D80E;
+}
+
+.body {
+    display: none;
+}
+
+/****/
+img.round {
+    border-radius: 50%;
+}
+
+.user-background {
+    position: relative;
+    z-index: 0;
+    left: 23px;
+    font-size: 8em;
+}
+
+.btn-intercity-dark-blue {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #003087;
+    --bs-btn-border-color:#003087;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #003087;
+    --bs-btn-hover-border-color:#003087;
+    --bs-btn-focus-shadow-rgb: 130, 138, 145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #003087;
+    --bs-btn-active-border-color:#003087;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #6c757d;
+    --bs-btn-disabled-border-color: #6c757d;
+}
+
+.btn-intercity-blue {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #005eb8;
+    --bs-btn-border-color: #005eb8;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #003087;
+    --bs-btn-hover-border-color: #003087;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #003087;
+    --bs-btn-active-border-color: #003087;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-outline-intercity-blue {
+    --bs-btn-color: #005eb8;
+    --bs-btn-border-color: #005eb8;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #005eb8;
+    --bs-btn-hover-border-color: #005eb8;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #005eb8;
+    --bs-btn-active-border-color: #005eb8;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #005eb8;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #005eb8;
+    --bs-gradient: none;
+}
+
+body {
+  padding-top: 56px; /* Adjust this value based on the height of your navbar */
+}
+.select2-container {
+    --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
+    display: block !important;
+    width: 100%;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: none !important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    color: #495057;
+    line-height: 1.5;
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: calc(2.25rem + 2px);
+    right: 0.75rem;
+}
+
+.select2-container .select2-dropdown {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.select2-container .select2-results__option--highlighted {
+    background-color: #e9ecef;
+    color: #495057;
+}

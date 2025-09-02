@@ -1,0 +1,7 @@
+name: 'ICT Bus Routes'
+type: module
+description: 'Bus routes application with React interface'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:system

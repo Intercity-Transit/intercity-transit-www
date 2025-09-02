@@ -1,0 +1,795 @@
+.body{
+    padding-top: 23px;
+}
+
+.table-responsive {
+    width: 100%;
+    max-height: calc(100vh - 100px);
+    overflow: scroll;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    background-color: #f8f9fa; /* Light gray background for debugging */
+}
+
+/* Custom scrollbar styles */
+.table-responsive::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: var(--bs-border-radius);
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: var(--bs-border-radius);
+    border: 3px solid #f8f9fa; /* Match the background color to create padding effect */
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+}
+
+.table-responsive table {
+    border-spacing: 0;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff; /* White background for debugging */
+}
+
+.table-responsive thead th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+}
+
+.table-responsive th {
+    border-left: none;
+    border-right: 1px solid #bbbbbb;
+    padding: 5px;
+    width: 80px;
+    min-width: 80px;
+    position: sticky;
+    top: 0;
+    font-weight: normal;
+}
+
+.table-responsive tbody td:first-child,
+.table-responsive thead th:first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 1;
+    width: 200px; /* Set specific width for the first column */
+    min-width: 200px; /* Ensure the minimum width is also set */
+}
+
+.table-responsive th:nth-child(1),
+.table-responsive td:nth-child(1) {
+    position: sticky;
+    left: 0px; /* Adjust left position based on the width of the first column */
+    width: 200px; /* Set specific width for the first column */
+    min-width: 200px; /* Ensure the minimum width is also set */
+    background: #f1f3f6;
+    z-index: 3 !important;
+}
+
+.table-responsive tbody td,
+.table-responsive tbody th {
+    white-space: nowrap;
+    border-left: none;
+    border-right: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+    padding: 5px;
+    width: 80px;
+    min-width: 80px;
+    vertical-align: middle; /* Center content vertically */
+}
+
+.table-responsive tbody td {
+    text-align: right; /* Right align text in table cells */
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.transit-day {
+    background-color: #ffeb3b !important; /* Yellow background for transit day */
+    color: #000; /* Black text color */
+}
+
+/* Ensure highlight class supersedes transit-day styling */
+.transit-day.highlight {
+    background-color: #a0a0a0 !important; /* Highlight background color */
+    color: #000; /* Ensure text color remains black */
+}
+
+/* Add highlight color for transit-day cells within highlighted rows */
+tr.highlight > .transit-day {
+    background-color: #e0e0e0 !important; /* Match the existing row highlight color */
+}
+
+.col {
+    min-width: 82px;
+    white-space: nowrap;
+}
+
+.infobox {
+    max-width: 260px; /* Adjust the max width as needed */
+    overflow-x: hidden; /* Prevent horizontal scroll bars */
+    font: 12px Arial, sans-serif;
+}
+
+.infobox-stopid {
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.infobox .stop-times-list {
+    margin-top: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.infobox .stop-time {
+    display: flex;
+    gap: 6px;
+    padding: 2px 0;
+    border-bottom: 1px solid #eee;
+}
+.infobox .stop-time:last-child {
+    border-bottom: none;
+}
+.infobox .static-arrival,
+.infobox .static-departure {
+    min-width: 56px;
+}
+body.show-arrivals-only .infobox .static-departure { display: none; }
+body.show-departures-only .infobox .static-arrival { display: none; }
+
+.stop-name {
+    font-weight: bold;
+}
+
+.stop-id {
+    font-size: 0.8em;
+    color: #333;
+    display: block;
+}
+.stop-sequence {
+    font-size: 0.7em;
+    color: #777;
+    font-style: italic;
+    float: right;
+}
+
+tr.timepoint th {
+    background-color: #f1f3f6;
+    z-index: 1; /* Adjust z-index to ensure it is below the calendar dropdown */
+}
+
+#map, #realTimeMap {
+    height: calc(100vh - 100px);
+}
+
+button#prevButton,
+button#nextButton {
+    background: #003087;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+}
+
+button#prevButton:hover,
+button#nextButton:hover {
+    background: #0072bc;
+}
+
+button#prevButton:disabled,
+button#nextButton:disabled {
+    background: #cccccc;
+    color: #666666;
+}
+
+span.timepoint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    transform-origin: 0 0;
+    transform: rotate(90deg);
+}
+
+th.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+th.timepoint {
+    height: 60px;
+}
+
+/* New styles for the aside element */
+aside {
+    display: block;
+    position: relative;
+    border-left: 24px solid #007B5F;
+    padding-left: 5px;
+    height: 60px;
+}
+
+aside h3 {
+    font-size: 11px;
+    background: #369;
+    color: #fff;
+    padding: 5px 10px;
+    line-height: 24px;
+    position: absolute;
+    top: 66px;
+    left: -25px;
+    background: none;
+    transform-origin: 0 0;
+    transform: rotate(270deg);
+    padding: 0 5px 10px 10px;
+}
+
+.stop-info {
+    height: 60px;
+    padding-top: 5px;
+    border-right: 1px solid #bbbbbb !important;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column; /* stack name over id */
+    justify-content: center;
+    gap: 2px;               /* tighter vertical gap */
+    align-items: flex-start;
+}
+
+.stop-info .stop-name {
+    font-weight: 600;
+    line-height: 1.1;
+    font-size: 0.95em;
+}
+
+.stop-info .stop-id {
+    font-size: 0.7em;
+    color: #555;
+    line-height: 1.1;
+}
+
+.trip{
+    align-items: center;
+    font-size: 0.8em;
+    color: #333;
+}
+
+th{
+    padding: 0px !important;
+}
+
+.table-responsive tbody tr:hover td,
+.table-responsive tbody tr:hover th {
+    background-color: #e0e0e0;
+}
+
+.table-responsive tbody td.highlight,
+.table-responsive tbody th.highlight {
+    background-color: #a0a0a0;
+}
+
+h2#routeName {
+    display: block;
+    margin-bottom: 0.2em; /* Adjust the margin as needed */
+}
+
+h2>div#tripHeadsign {
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+div#formattedDate {
+    font-size: 0.5em;
+    font-weight: normal;
+}
+
+.ui-datepicker {
+    position: absolute; /* Ensure position is not static */
+    z-index: 1100 !important; /* Further increase z-index to ensure it is on top of the stop_times table */
+}
+
+.modal-body {
+    word-wrap: break-word; /* Ensure text wraps within the modal */
+    white-space: normal; /* Allow text to wrap */
+}
+
+/* Unified toggle group styling */
+.btn-toggle-group,
+.mobile-lists-container .btn-toggle-group {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #F1F3F6;
+    border: 0.86px solid #D1D2D6;
+    border-radius: 86px;
+    padding: 4px 6px;
+    height: 50px;
+    gap: 2px;
+}
+
+.btn-toggle-group .btn {
+    color: rgba(13,26,41,1);
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 86px !important;
+    font-size: 14px;
+    line-height: 1.1;
+    padding: 8px 12px !important;
+    height: 34px;
+    box-shadow: none;
+    transition: background .15s ease, color .15s ease;
+}
+
+.btn-toggle-group .btn.active {
+    color: #fff !important;
+    background: #007B5F !important;
+    box-shadow: 0 12px 16px -4px rgba(16,24,40,0.1);
+}
+
+.btn-toggle-group .btn:focus-visible {
+    outline: 2px solid #004c3f;
+    outline-offset: 2px;
+}
+
+/* Remove old specific class duplication (legacy support) */
+.btn-stops-toggle { background: none; border: none; padding: 0; }
+
+/* Visually hide embedded radio inputs inside pill toggles */
+.btn-toggle-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* (Optional) prevent stray outline artifacts in some browsers */
+.btn-toggle-group input[type="radio"]:focus + label,
+.btn-toggle-group label:has(> input[type="radio"]:focus) {
+    outline: none;
+}
+
+/* Real-time styling */
+.rt-updated { background: #fffbe6; }
+.rt-arrival, .rt-departure { font-weight: 600; }
+.rt-delay { font-size: 0.75rem; color: #c00; display: block;}
+
+body.schedule-mode .rt-wrapper { display: none; }
+body.realtime-mode .static-wrapper { display: none; }
+/* Optional fallback: if no RT data, show static anyway */
+body.realtime-mode .rt-wrapper:empty + .static-wrapper,
+body.realtime-mode .rt-wrapper:empty { display:none; }
+body.realtime-mode .rt-wrapper:empty ~ .static-wrapper { display:block; }
+
+body.realtime-mode th.rt-empty-col,
+body.realtime-mode td.rt-empty-col {
+    display: none;
+}
+/* Optional: visual cue in schedule mode (not hidden) */
+body.schedule-mode th.rt-empty-col {
+    opacity: 0.4;
+}
+
+/* Hide departures when arrivals-only */
+body.show-arrivals-only .static-departure,
+body.show-arrivals-only .rt-departure {
+    display: none;
+}
+/* Hide arrivals when departures-only */
+body.show-departures-only .static-arrival,
+body.show-departures-only .rt-arrival {
+    display: none;
+}
+
+
+/* Hide display date (not the input) in realtime mode */
+body.realtime-mode #display_date,
+body.realtime-mode .display_date,
+body.realtime-mode label[for="display_date"] {
+    display: none !important;
+}
+
+/* (Remove or adjust prior rule that hid #date if you no longer want that) */
+/* body.realtime-mode #date { display:none !important; } */
+
+/* Map stop markers (AdvancedMarkerElement custom DOM) */
+.gmap-marker {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .15s ease;
+}
+.gmap-marker .shape {
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    background: #007B5F;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #006451, 0 1px 2px rgba(0,0,0,.25);
+    transition: background .15s ease, transform .15s ease;
+}
+
+.gmap-timepoint-marker .shape {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+    background: #BF8500;
+    border-radius: 4px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 1px #996800, 0 2px 4px rgba(0,0,0,.35);
+}
+
+/* Make all stops look like timepoints */
+.gmap-stop-marker .shape {
+    /* duplicate the styles you use for .gmap-timepoint-marker .shape */
+    background: #bf8500; /* example – replace with actual timepoint color */
+    border: 2px solid #FFFFFF;
+}
+
+.gmap-marker.hover .shape,
+.gmap-marker:focus .shape {
+    background: #009f7a;
+}
+
+.gmap-timepoint-marker.hover .shape {
+    background: #E6A400;
+}
+
+.gmap-marker.hover,
+.gmap-marker:focus {
+    transform: scale(1.15);
+}
+
+/* High-contrast focus outline */
+.gmap-marker:focus-visible .shape {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/* Real-time delay badges in map info windows */
+.infobox .delay {
+    margin-left: 4px;
+    font-size: 10px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    background: #ececec;
+    color: #333;
+}
+.infobox .delay.late { background:#ffdddd; color:#b30000; }
+.infobox .delay.early { background:#ddeeff; color:#004a80; }
+.infobox .delay.ontime { background:#e1f7e1; color:#1b5e20; }
+.infobox .rt-row .static-arrival,
+.infobox .rt-row .static-departure { display: none; }
+.infobox .rt-section {
+    margin-top: 8px;
+    padding: 4px 6px 6px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #fafafa;
+    max-width: 360px;
+}
+.infobox .rt-header {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 4px;
+}
+.infobox .rt-list {
+    max-height: 140px;
+    overflow-y: auto;
+}
+.infobox .rt-entry {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 2px 0;
+    border-bottom: 1px solid #eee;
+}
+.infobox .rt-entry:last-child {
+    border-bottom: none;
+}
+.infobox .rt-time {
+    font-weight: 600;
+    min-width: 46px;
+}
+.infobox .rt-headsign {
+    flex: 1;
+}
+.infobox .delay {
+    font-size: 10px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    background: #ececec;
+}
+.infobox .delay.late { background:#ffdddd; color:#b30000; }
+.infobox .delay.early { background:#ddeeff; color:#004a80; }
+.infobox .delay.ontime { background:#e1f7e1; color:#1b5e20; }
+
+/* Map flyout width adjustment */
+#mapFlyout.offcanvas {
+    --bs-offcanvas-width: 80vw; /* Bootstrap offcanvas variable */
+    width: 80vw !important;
+    max-width: 80vw;
+}
+
+.time-cell {
+    padding: 4px 6px;
+    vertical-align: top;
+    text-align: center;
+    min-width: 58px;
+    line-height: 1.05;
+}
+.time-cell .time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-height: 34px;
+}
+.time-cell .time-value {
+    font-weight: 600;
+    font-size: 12px;
+}
+.time-cell .delay-value {
+    font-size: 10px;
+    line-height: 1;
+    min-height: 10px;
+    color: #555;
+    font-weight: 500;
+}
+.time-cell .delay-value.late {
+    color: #b30000;
+}
+.time-cell .delay-value.early {
+    color: #0056a3;
+}
+.time-cell .delay-value.ontime {
+    color: #1b5e20;
+}
+
+/* Vehicle marker redesign */
+.vehicle-marker {
+    --bearing: 0deg;
+    position: relative;
+    width: 0;
+    height: 0;
+    transform: none;       /* remove previous translate(-50%,-50%) */
+    z-index: 10000;
+    pointer-events: auto;
+    font-size: 0;
+    overflow: visible;
+}
+
+/* Anchor holds the visible graphics and is centered on the point */
+.vehicle-marker .vehicle-anchor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--vehicle-circle-size);
+    height: var(--vehicle-circle-size);
+    transform:
+        translate(calc(-50% + var(--vehicle-anchor-offset-x)),
+                  calc(-50% + var(--vehicle-anchor-offset-y)));
+    pointer-events: none; /* click still works via parent */
+}
+
+.vehicle-marker .icon-circle {
+    position: absolute;
+    inset: 0;
+    width: var(--vehicle-circle-size);
+    height: var(--vehicle-circle-size);
+    background: #FFFFFF;
+    border: 3px solid #007B5F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* === Chevron (direction) outside circle, rotating with bearing === */
+:root {
+    --vehicle-chevron-scale: 0.9;     /* chevron size */
+}
+
+/* Rotating wrapper (applies bearing) */
+.vehicle-marker .bearing-wrapper {
+    position: absolute;
+    inset: 0;
+    transform: rotate(var(--bearing));
+    transform-origin: 50% 50%;
+    pointer-events: none;
+}
+
+/* Position chevron so its apex is above (outside) the circle */
+.vehicle-marker .chevron-pointer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% - var(--vehicle-chevron-distance)));
+    pointer-events: none;
+}
+
+.vehicle-marker .chevron-svg {
+    width: 32px;
+    height: 32px;
+    transform: scale(var(--vehicle-chevron-scale));
+    overflow: visible;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.55));
+    transition: stroke .15s ease, filter .15s ease;
+}
+
+.vehicle-marker .chevron-svg path {
+    stroke: #007B5F;
+    stroke-width: 6;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.vehicle-marker:hover .chevron-svg path { stroke: #009c70; }
+.vehicle-marker:hover .chevron-svg { filter: drop-shadow(0 3px 6px rgba(0,0,0,0.6)); }
+
+/* Masked green bus icon (restored) */
+.vehicle-marker .bus-mask {
+    width: 26px;
+    height: 26px;
+    background: #007B5F;
+    -webkit-mask: url("https://maps.gstatic.com/mapfiles/transit/iw2/b/bus2.png") center / contain no-repeat;
+            mask: url("https://maps.gstatic.com/mapfiles/transit/iw2/b/bus2.png") center / contain no-repeat;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.35));
+    pointer-events: none;
+}
+.vehicle-marker:hover .bus-mask { background:#009c70; }
+
+@supports not (mask: url("")) {
+    .vehicle-marker .bus-mask {
+        background: none;
+        filter: hue-rotate(115deg) saturate(4) brightness(0.9);
+        background-image: url("https://maps.gstatic.com/mapfiles/transit/iw2/b/bus2.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .vehicle-marker:hover .bus-mask {
+        filter: hue-rotate(115deg) saturate(5) brightness(1.05);
+    }
+}
+
+/* Add (or ensure) these root vars near other :root definitions */
+:root {
+    --vehicle-circle-size: 40px;
+    --vehicle-anchor-offset-x: 0px;
+    --vehicle-anchor-offset-y: 0px;
+    --vehicle-chevron-distance: 24px;
+}
+
+/* Safety fallback if var not resolved */
+.vehicle-marker .vehicle-anchor,
+.vehicle-marker .icon-circle {
+    width: var(--vehicle-circle-size, 40px);
+    height: var(--vehicle-circle-size, 40px);
+}
+
+/* Ensure circle still visible (in case earlier overrides removed it) */
+.vehicle-marker .icon-circle {
+    background: #FFFFFF;
+    border: 3px solid #007B5F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* New bus icon styles */
+.vehicle-marker .bus-icon {
+    width: 26px;
+    height: 26px;
+    display: block;
+    pointer-events: none;
+}
+.vehicle-marker:hover .bus-icon rect[fill="#FFFFFF"] {
+    /* optional subtle hover accent */
+    filter: brightness(0.97);
+}
+
+/* Screen-reader only utility (if not already defined) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* (Ensure these styles exist; add if missing) */
+.infobox .rt-section { margin-top:8px; padding:4px 6px 6px; border:1px solid #e0e0e0; border-radius:4px; background:#fafafa; }
+.infobox .rt-header { font-size:11px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; color:#444; margin-bottom:4px; }
+.infobox .rt-entry { display:flex; align-items:center; gap:6px; font-size:12px; padding:2px 0; border-bottom:1px solid #eee; }
+.infobox .rt-entry:last-child { border-bottom:none; }
+.infobox .rt-time { font-weight:600; min-width:46px; }
+.infobox .rt-headsign { flex:1; }
+.infobox .delay { font-size:10px; padding:1px 4px; border-radius:3px; background:#ececec; }
+.infobox .delay.late { background:#ffdddd; color:#b30000; }
+.infobox .delay.early { background:#ddeeff; color:#004a80; }
+.infobox .delay.ontime { background:#e1f7e1; color:#1b5e20; }
+
+/* Hide static schedule when realtime data present (body.realtime-mode already in file) */
+body.realtime-mode .static-wrapper:empty { display:none; }
+/* Scroll control buttons (table horizontal scroll) */
+.table-scroll-btns {
+    /* margin-left:auto already set inline in JS */
+}
+
+.table-scroll-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #003087;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.table-scroll-btn .icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    pointer-events: none;
+}
+
+.table-scroll-btn:hover {
+    background: #0045b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+.table-scroll-btn:active {
+    transform: translateY(0);
+    background: #00235c;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.table-scroll-btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Parent flex helper (added via JS) */
+.nav-bar-flex {
+    width: 100%;
+}

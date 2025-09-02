@@ -1,0 +1,7 @@
+ict_busroutes.app:
+  path: '/temp--bus-routes-demo'
+  defaults:
+    _controller: '\Drupal\ict_busroutes\Controller\BusRoutesController::app'
+    _title: 'Bus Routes'
+  requirements:
+     _permission: 'access site reports'
